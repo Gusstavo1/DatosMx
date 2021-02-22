@@ -39,7 +39,7 @@ class SchoolCycleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpViewModel()
         setUpRecyclerView()
-        //setObserver()
+        setObserver()
     }
 
     private fun setUpRecyclerView() {
@@ -62,7 +62,6 @@ class SchoolCycleFragment : Fragment() {
     }
 
     private fun setObserver() {
-
         mainViewModel.getCicloEscolarInfo().observe(viewLifecycleOwner, Observer {result->
             result?.let {response->
                 when(response.status){
@@ -70,13 +69,13 @@ class SchoolCycleFragment : Fragment() {
                         Log.d("School", "success: ")
                         loadingCicloEscolar.visibility = View.GONE
                         rvCycleSchool.visibility = View.VISIBLE
-                        //rvCycleSchool.adapter = response.data?.results?.let { SchoolCycleAdapter(it) }
+                        rvCycleSchool.adapter = response.data?.results?.let { SchoolCycleAdapter(it) }
                     }
                 }
             }
         })
 
-        /*mainViewModel.getCicloEscolarInfo().observe(viewLifecycleOwner, Observer {result->
+        mainViewModel.getCicloEscolarInfo().observe(viewLifecycleOwner, Observer {result->
             result?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
@@ -95,7 +94,6 @@ class SchoolCycleFragment : Fragment() {
                     }
                 }
             }
-        })*/
+        })
     }
-
 }

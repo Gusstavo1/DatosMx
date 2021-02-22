@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.gcr.datosmx.ui.views.ViewPagerFragment"
+        android:name="com.gcr.datosmx.ui.views.onboarding.ViewPagerFragment"
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager" >
         <action
@@ -175,8 +175,9 @@
         android:label="fragment_gas_station"
         tools:layout="@layout/fragment_gas_station" >
         <argument
-            android:name="itemGas"
-            app:argType="com.gcr.datosmx.data.models.responses.gas.GasPrice" />
+            android:name="gasPrice"
+            app:argType="com.gcr.datosmx.data.models.responses.gas.GasPrice"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/webViewFragment"

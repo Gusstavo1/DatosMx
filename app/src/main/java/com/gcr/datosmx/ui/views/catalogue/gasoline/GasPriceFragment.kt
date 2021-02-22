@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -16,6 +17,7 @@ import com.gcr.datosmx.data.api.ApiHelper
 import com.gcr.datosmx.data.api.RetrofitClient
 import com.gcr.datosmx.data.models.responses.gas.GasPrice
 import com.gcr.datosmx.ui.viewmodel.MainViewModel
+import com.gcr.datosmx.utils.Status
 import com.gcr.datosmx.utils.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_gas_price.*
 
@@ -43,7 +45,7 @@ class GasPriceFragment : Fragment(), GasAdapter.ItemClickListener {
         Log.d(TAG, "onViewCreated: ")
         setUpViewModel()
         sepUtRecycler()
-        //setObserver()
+        setObserver()
     }
 
     private fun setUpViewModel() {
@@ -57,7 +59,7 @@ class GasPriceFragment : Fragment(), GasAdapter.ItemClickListener {
             )
     }
 
-    /*private fun setObserver() {
+    private fun setObserver() {
         mainViewModel.getGasPrice().observe(viewLifecycleOwner, Observer {result->
             result?.let { resource ->
                 when (resource.status) {
@@ -65,7 +67,7 @@ class GasPriceFragment : Fragment(), GasAdapter.ItemClickListener {
                         Log.d(TAG, "Success: ")
                         gasLoading.visibility = View.GONE
                         rvGasPrice.visibility = View.VISIBLE
-                        rvGasPrice.adapter = resource.data?.results?.let { com.gcr.datosmx.ui.adapter.GasAdapter(it,this) }
+                        rvGasPrice.adapter = resource.data?.results?.let { GasAdapter(it,this) }
                     }
                     Status.ERROR -> {
                         gasLoading.visibility = View.GONE
@@ -79,7 +81,7 @@ class GasPriceFragment : Fragment(), GasAdapter.ItemClickListener {
                 }
             }
         })
-    }*/
+    }
 
     private fun sepUtRecycler(){
         rvGasPrice.layoutManager = LinearLayoutManager(requireContext())
@@ -91,11 +93,11 @@ class GasPriceFragment : Fragment(), GasAdapter.ItemClickListener {
     }
 
     override fun itemClickListener(item: GasPrice) {
-        /*val action =
+        val action =
             GasPriceFragmentDirections.actionGasPriceFragmentToGasStationFragment(
                 item
             )
-        findNavController().navigate(action)*/
+        findNavController().navigate(action)
     }
 
     override fun onPause() {

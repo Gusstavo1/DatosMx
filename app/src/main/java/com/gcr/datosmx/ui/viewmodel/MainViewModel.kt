@@ -13,46 +13,25 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
 
     val hour = MutableLiveData<Int>()
 
-    fun getGasPrice() = liveData(Dispatchers.IO) {
-        emit(com.gcr.datosmx.utils.Resource.loading(data = null))
+    fun getGasPrice() = liveData(Dispatchers.IO){
+        emit(Response.loading(data = null))
         try {
-            emit(com.gcr.datosmx.utils.Resource.success(data = repository.getGasPrice()))
-            Log.d("VM", "Success")
-        } catch (exception: Exception) {
+           emit(Response.success(data = repository.getGasPrice()))
+       } catch (exception:java.lang.Exception){
+           emit(Response.error(exception.message.toString(),null))
             Log.d("VM", "Error: ${exception.message}")
-            emit(com.gcr.datosmx.utils.Resource.error(exception.message.toString(),""))
-        }
+       }
     }
 
     fun getCicloEscolarInfo() = liveData(Dispatchers.IO){
-        emit(Response.success(data = null))
+        emit(Response.loading(data = null))
         try {
             emit(Response.success(data = repository.getCicloEscolarInfo()))
-        } catch (exception: Exception) {
+        } catch (exception:java.lang.Exception){
+            emit(Response.error(exception.message.toString(),null))
             Log.d("VM", "Error: ${exception.message}")
-            emit(Response.error(exception.toString(),""))
         }
     }
-
-    /*fun getDesempleoInfo() = liveData(Dispatchers.IO){
-        emit(com.gcr.datosmx.utils.Resource.loading(data = null))
-        try {
-            emit(com.gcr.datosmx.utils.Resource.success(data = repository.getDesempleoInfo()))
-        } catch (exception: Exception) {
-            Log.d("VM", "Error: ${exception.message}")
-            emit(com.gcr.datosmx.utils.Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
-        }
-    }
-
-    fun getPoblacionInfo() = liveData(Dispatchers.IO){
-        emit(com.gcr.datosmx.utils.Resource.loading(data = null))
-        try {
-            emit(com.gcr.datosmx.utils.Resource.success(data = repository.getPoblacionInfo()))
-        } catch (exception: Exception) {
-            Log.d("VM", "Error: ${exception.message}")
-            emit(com.gcr.datosmx.utils.Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
-        }
-    }*/
 
     fun getGreeting(){
         hour.value = GetLocalTime.getHour()

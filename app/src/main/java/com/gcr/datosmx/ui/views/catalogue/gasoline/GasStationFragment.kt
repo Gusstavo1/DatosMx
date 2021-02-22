@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_gas_station.*
 
 class GasStationFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
-    //private val args: GasStationFragmentArgs by navArgs()
+    private val args: GasStationFragmentArgs by navArgs()
     private val TAG = "GStation"
     private lateinit var map: GoogleMap
     private lateinit var buttonSheetFragment: ButtonSheetFragment
@@ -41,21 +41,21 @@ class GasStationFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerCli
         map.setMapStyle(style)
         buttonSheetFragment =
             ButtonSheetFragment()
-        //buttonSheetFragment.setAddress(args.itemGas.calle)
-        //buttonSheetFragment.setCompany(args.itemGas.razonsocial)
+        args.gasPrice?.calle?.let { buttonSheetFragment.setAddress(it) }
+        args.gasPrice?.razonsocial?.let { buttonSheetFragment.setCompany(it) }
 
         map.setOnMarkerClickListener(this)
-        //createMarker()
+        createMarker()
     }
 
-    /*
+
     private fun createMarker() {
-        val lat: Double = args.itemGas.latitude.toDouble()
-        val lng: Double = args.itemGas.longitude.toDouble()
+        val lat: Double = args.gasPrice!!.latitude.toDouble()
+        val lng: Double = args.gasPrice!!.longitude.toDouble()
         val coordinates = LatLng(lat, lng)
         val maker = MarkerOptions()
             .position(coordinates)
-            .title(args.itemGas.razonsocial)
+            .title(args.gasPrice!!.razonsocial)
             .icon(
                 BitmapDescriptorFactory.fromBitmap(
                     ResizeMarker.resizeBitmap(
@@ -68,7 +68,7 @@ class GasStationFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerCli
             )
         map.addMarker(maker)
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(coordinates, 12f))
-    }*/
+    }
 
     override fun onMarkerClick(marker: Marker?): Boolean {
 

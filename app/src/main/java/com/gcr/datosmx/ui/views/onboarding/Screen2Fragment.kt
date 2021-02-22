@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.gcr.datosmx.R
+import kotlinx.android.synthetic.main.fragment_view_pager.*
 
 class Screen2Fragment  : Fragment() {
 
@@ -17,7 +18,9 @@ class Screen2Fragment  : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_screen2, container, false)
+        val view = inflater.inflate(R.layout.fragment_screen2, container, false)
+        viewPagerMx?.currentItem = 2
+        return view
     }
 
 }

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.gcr.datosmx.R
 import kotlinx.android.synthetic.main.fragment_screen3.*
+import kotlinx.android.synthetic.main.fragment_view_pager.*
 
 
 class Screen3Fragment : Fragment() {
@@ -26,6 +27,7 @@ class Screen3Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewPagerMx?.currentItem = 3
         btnFinish.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_mainFragment)
             onBoardingFinish()
