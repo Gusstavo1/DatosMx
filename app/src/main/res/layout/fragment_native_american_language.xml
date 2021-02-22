@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    tools:context=".ui.views.catalogue.NativeAmericanLanguageFragment">
+
+
+    <com.codesgood.views.JustifiedTextView
+        android:id="@+id/tvMainTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-black"
+        android:text="¿Sabías que en México hay 68 lenguas indígenas, además del español?"
+        android:textColor="@color/darkGrayColor"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.codesgood.views.JustifiedTextView
+        android:id="@+id/tvExplain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:fontFamily="sans-serif"
+        android:text="En 1999, la Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura (UNESCO) proclamó el 21 de febrero para conmemorar el Día Internacional de la Lengua Materna y es que, en el mundo existen cerca de 7,000 idiomas, de los cuales, casi el 50 por ciento está en peligro de desaparecer."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMainTitle" />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/btnShowMap"
+        style="@style/CustomButton"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="Ver mapa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvExplain" />
+
+
+    <LinearLayout
+        android:visibility="visible"
+        android:id="@+id/languages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvExplain">
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/blueMap" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Otomí"
+                android:textSize="11sp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/greenMap" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nahutl"
+                android:textSize="11sp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/pinkMap" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Totonaco"
+                android:textSize="11sp"
+                android:layout_marginEnd="4dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/circle"
+                android:backgroundTint="@color/redColor" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maya"
+                android:textSize="11sp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.gms.maps.MapView
+        android:visibility="gone"
+        android:id="@+id/languageMap"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/languages"
+        tools:layout_editor_absoluteX="0dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

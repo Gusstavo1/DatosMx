@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_host"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.gcr.datosmx.ui.views.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_catalogueFragment"
+            app:destination="@id/catalogueFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="false"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+        <action
+            android:id="@+id/action_mainFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_mainFragment_to_archaeologicalZonesFragment"
+            app:destination="@id/archaeologicalZonesFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.gcr.datosmx.ui.views.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_viewPagerFragment"
+            app:destination="@id/viewPagerFragment"
+            app:popUpTo="@id/navigation_host"
+            app:popUpToInclusive="true"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+        <action
+            android:id="@+id/action_splashFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/navigation_host"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.gcr.datosmx.ui.views.ViewPagerFragment"
+        android:label="fragment_view_pager"
+        tools:layout="@layout/fragment_view_pager" >
+        <action
+            android:id="@+id/action_viewPagerFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/viewPagerFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/catalogueFragment"
+        android:name="com.gcr.datosmx.ui.views.catalogue.CatalogueFragment"
+        android:label="fragment_catalogue"
+        tools:layout="@layout/fragment_catalogue" >
+        <action
+            android:id="@+id/action_catalogueFragment_to_schoolCycleFragment"
+            app:destination="@id/schoolCycleFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+        <action
+            android:id="@+id/action_catalogueFragment_to_unemploymentFragment"
+            app:destination="@id/unemploymentFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+        <action
+            android:id="@+id/action_catalogueFragment_to_secundarySchoolFragment"
+            app:destination="@id/secundarySchoolFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+        <action
+            android:id="@+id/action_catalogueFragment_to_internetHomeFragment"
+            app:destination="@id/internetHomeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+        <action
+            android:id="@+id/action_catalogueFragment_to_nativeAmericanLanguageFragment"
+            app:destination="@id/nativeAmericanLanguageFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+        <action
+            android:id="@+id/action_catalogueFragment_to_gasPriceFragment"
+            app:destination="@id/gasPriceFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+        <action
+            android:id="@+id/action_catalogueFragment_to_seedsFragment"
+            app:destination="@id/seedsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/gasPriceFragment"
+        android:name="com.gcr.datosmx.ui.views.catalogue.gasoline.GasPriceFragment"
+        android:label="fragment_gas_price"
+        tools:layout="@layout/fragment_gas_price" >
+        <action
+            android:id="@+id/action_gasPriceFragment_to_gasStationFragment"
+            app:destination="@id/gasStationFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/internetHomeFragment"
+        android:name="com.gcr.datosmx.ui.views.catalogue.InternetHomeFragment"
+        android:label="fragment_internet_home"
+        tools:layout="@layout/fragment_internet_home" />
+    <fragment
+        android:id="@+id/schoolCycleFragment"
+        android:name="com.gcr.datosmx.ui.views.catalogue.SchoolCycleFragment"
+        android:label="fragment_school_cycle"
+        tools:layout="@layout/fragment_school_cycle" />
+    <fragment
+        android:id="@+id/unemploymentFragment"
+        android:name="com.gcr.datosmx.ui.views.catalogue.UnemploymentFragment"
+        android:label="fragment_unemployment"
+        tools:layout="@layout/fragment_unemployment" />
+    <fragment
+        android:id="@+id/secundarySchoolFragment"
+        android:name="com.gcr.datosmx.ui.views.catalogue.SecundarySchoolFragment"
+        android:label="fragment_secundary_school"
+        tools:layout="@layout/fragment_secundary_school" />
+    <fragment
+        android:id="@+id/nativeAmericanLanguageFragment"
+        android:name="com.gcr.datosmx.ui.views.catalogue.NativeAmericanLanguageFragment"
+        android:label="fragment_native_american_language"
+        tools:layout="@layout/fragment_native_american_language" />
+    <fragment
+        android:id="@+id/seedsFragment"
+        android:name="com.gcr.datosmx.ui.views.catalogue.SeedsFragment"
+        android:label="fragment_seeds"
+        tools:layout="@layout/fragment_seeds" />
+    <fragment
+        android:id="@+id/gasStationFragment"
+        android:name="com.gcr.datosmx.ui.views.catalogue.gasoline.GasStationFragment"
+        android:label="fragment_gas_station"
+        tools:layout="@layout/fragment_gas_station" >
+        <argument
+            android:name="itemGas"
+            app:argType="com.gcr.datosmx.data.models.responses.gas.GasPrice" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.gcr.datosmx.ui.views.WebViewFragment"
+        android:label="fragment_web_view"
+        tools:layout="@layout/fragment_web_view" />
+    <fragment
+        android:id="@+id/archaeologicalZonesFragment"
+        android:name="com.gcr.datosmx.ui.views.tourist.ArchaeologicalZonesFragment"
+        android:label="fragment_archaeological_zones"
+        tools:layout="@layout/fragment_archaeological_zones" >
+        <action
+            android:id="@+id/action_archaeologicalZonesFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.gcr.datosmx.ui.views.tourist.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.gcr.datosmx.ui.views.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
+</navigation>

@@ -1,0 +1,11 @@
+package com.gcr.datosmx.data.api
+
+import com.gcr.datosmx.data.models.responses.school.ResultCicloEscolar
+import com.gcr.datosmx.data.models.responses.ResultDesempleo
+import com.gcr.datosmx.data.models.responses.ResultPoblacion
+import com.gcr.datosmx.data.models.responses.ResutlGasPrice
+import retrofit2.http.GET
+
+interface ApiService {
+
+    @GET("v2/prec

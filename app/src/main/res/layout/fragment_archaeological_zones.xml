@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.views.tourist.ArchaeologicalZonesFragment"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:background="@color/lightBluecolo"
+        android:id="@+id/btnManager"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnPyramids"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Piramides"
+            android:background="@color/lightBluecolo"
+            android:textColor="@color/whiteColor">
+        </Button>
+        <Button
+            android:id="@+id/btnBeaches"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Playas"
+            android:background="@color/lightBluecolo"
+            android:textColor="@color/whiteColor">
+        </Button>
+        <Button
+
+            android:id="@+id/btnMuseums"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Museos"
+            android:background="@color/lightBluecolo"
+            android:textColor="@color/whiteColor">
+        </Button>
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/btnAllPlaces"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Ver todo"
+            android:background="@color/blueColor"
+            android:textColor="@color/whiteColor">
+        </Button>
+
+    </LinearLayout>
+
+    <com.google.android.gms.maps.MapView
+        android:visibility="visible"
+        android:id="@+id/pyramidMap"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
